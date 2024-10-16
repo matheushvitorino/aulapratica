@@ -2,6 +2,7 @@ package com.formulariocadastro.demo.controllers;
 
 import java.util.Map;
 
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -39,7 +40,7 @@ public class homeController {
         return new ModelAndView(
         "todo/list", 
         Map.of("todos", 
-        todoRepository.findAll())
+        todoRepository.findAll(Sort.by("deadline")))
         );
     }
 
@@ -98,6 +99,18 @@ public class homeController {
         return "redirect:/";
     }
     
+    @PostMapping("/finish/{id}")
+    public String finish(@PathVariable Long id){
+        // o todooptional optional<Todo> e retornado por todoRepository.findById(id) para evitar null da classe findbyid caso viesse a ser
+        var todooptional = todoRepository.findById(id);
+        if (todooptional.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
+        var todo = todooptional.get();
+        todo.markHasFinished();
+        todoRepository.save(todo);
+        return "redirect:/";
+    }
     
     
 }

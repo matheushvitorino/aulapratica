@@ -117,5 +117,9 @@ public class Todo {
         this.createdAt = LocalDateTime.now();
     }
 
+    public void markHasFinished(){
+        this.finishedAt = LocalDateTime.now();
+    }
+
     
 }
