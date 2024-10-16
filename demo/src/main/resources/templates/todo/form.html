@@ -28,12 +28,18 @@
           <input type="hidden" th:field="*{id}">
           <div class="mb-3">
             <label for="title" class="form-label">Titulo</label>
-            <input type="text" class="form-control" id="title" th:field="*{title}"/> 
+            <input type="text" class="form-control" id="title" th:field="*{title}" />
+            <ul>
+              <li th:each="error : ${#fields.errors('title')}" th:text="${error}"></li>
+            </ul>
           </div>
 
           <div class="mb-3">
             <label for="title" class="form-label">Data de entrega</label>
-            <input type="date" class="form-control" id="deadline" th:field="*{deadline}"/> 
+            <input type="date" class="form-control" id="deadline" th:field="*{deadline}" /> 
+            <ul>
+              <li th:each="error : ${#fields.errors('deadline')}" th:text="${error}"></li>
+            </ul>
           </div>
           <button type="submit" class="btn btn-primary">Salvar</button>
       </form>
