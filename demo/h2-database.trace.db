@@ -1,0 +1,6 @@
+2024-10-15 18:37:04.982764-03:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO TODO(TITLE,DEADLINE, CREATED_AT) VALUES ('Tarefa spring',' 2024-10-14', 2024-10-14 [*]10:00:00.0)"; expected "[, ., ::, AT, FORMAT, *, /, %, +, -, ||, NOT, IS, ILIKE, REGEXP, AND, OR, ,, )"; SQL statement:
+INSERT INTO TODO(TITLE,DEADLINE, CREATED_AT) VALUES ('Tarefa spring',' 2024-10-14', 2024-10-14 10:00:00.0) [42001-224]
+2024-10-15 18:51:10.315402-03:00 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DELETE [*]* FROM TODO"; expected "identifier"; SQL statement:
+DELETE * FROM TODO [42001-224]
